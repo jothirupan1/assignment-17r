@@ -10,6 +10,7 @@ const Products = require('./models/productdetails');
 const Users = require("./models/employeedetails");
 const authmiddleware = require('./middleware/authmiddleware')
 const jwt_key = "jothirupan"
+const port = process.env.PORT || 3001;
 
 const cors =require("cors")
 app.use(cors());
@@ -108,7 +109,7 @@ app.post('/auth/login',async(req,res)=>{
     }
 })
 
-app.listen(3001,()=>{
+app.listen(port, () => {
     dbconnection();
-    console.log("server is on air")
-})
+    console.log(`server is on air at port ${port}`);
+});
